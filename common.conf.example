@@ -1,0 +1,14 @@
+REMOTE_HOST="root@123.456.78.9"
+REMOTE_BASE="/srv/apps"
+SSH_PORT=22
+# SSH_KEY="$HOME/.ssh/id_ed25519"
+
+
+
+cmd_alias() {
+  case "$1" in
+    nginx-restart) echo "cd $REMOTE_BASE/infra && docker compose restart nginx" ;;
+    ps)            echo "docker ps" ;;
+    *) return 1 ;;
+  esac
+}
